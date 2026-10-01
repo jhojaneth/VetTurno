@@ -39,9 +39,80 @@ responsable. El problema no es falta de cuidado: es que la información está di
 - Una Cita pertenece a una Mascota y a un Veterinario.
 - Las relaciones de Mascota y Cita utilizan claves foráneas para mantener la integridad de los datos.
 ## Endpoints
+POST  /api/auth/register
+POST  /api/auth/login
+
+POST  /api/propietarios
+GET   /api/propietarios
+
+POST  /api/mascotas
+GET   /api/mascotas
+
+POST  /api/veterinarios
+GET   /api/veterinarios
+
+POST  /api/citas
+GET   /api/citas
+GET   /api/citas/veterinario/{id}
 ## Roles
+### USER
+- Registrar propietarios.
+- Registrar mascotas.
+- Registrar citas.
+- Consultar propietarios.
+- Consultar mascotas.
+- Consultar veterinarios.
+- Consultar citas.
+- No puede registrar veterinarios.
+
+### ADMIN
+- Puede hacer todo lo anterior.
+- Puede registrar veterinarios.
 ## Configuración de MySQL
+- Crear la base de datos VetTurno
+- Configurar application.properties: 
+`spring.datasource.url=jdbc:mysql://localhost:3306/vetturnos`
+`spring.datasource.username=root`
+`spring.datasource.password=enginner`
+  
 ## Orden del flujo
+
+El flujo general de una petición es:
+
+```text
+Postman / Swagger
+       ↓
+   Controller
+       ↓
+    Service
+       ↓
+   Repository
+       ↓
+     MySQL
+```
+
+### Flujo para crear una cita
+
+```text
+POST /api/citas
+       ↓
+CitaController
+       ↓
+CitaService
+       ↓
+Busca Mascota y Veterinario
+       ↓
+Comprueba fecha futura
+       ↓
+Comprueba que no exista otra cita
+       ↓
+CitaRepository
+       ↓
+MySQL
+       ↓
+Respuesta 201 Created
+```
+
 ## Pruebas
 ## Errores frecuentes
 ## Cómo ejecutar el proyecto
