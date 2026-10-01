@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 //nombre, especie, raza, propietarioId
 public class MascotaRequest {
     private String nombre;
+    @NotBlank (message = "especie obligatorio")
     private String especie;
     @NotBlank (message = "raza obligatorio")
     private String raza;

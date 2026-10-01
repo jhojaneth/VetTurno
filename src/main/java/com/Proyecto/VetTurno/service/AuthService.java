@@ -1,5 +1,5 @@
 package com.Proyecto.VetTurno.service;
-    
+
 import com.Proyecto.VetTurno.dto.AuthResponse;
 import com.Proyecto.VetTurno.dto.LoginRequest;
 import com.Proyecto.VetTurno.dto.RegistroRequest;
