@@ -7,18 +7,38 @@ La agenda todavía vive entre un cuaderno y conversaciones de WhatsApp. Cuando e
 consultas para el mismo veterinario a la misma hora, escribir mal el nombre de una mascota o perder el teléfono de su
 responsable. El problema no es falta de cuidado: es que la información está dispersa.
 ## Alcance
-- Registro y login con USER y ADMIN.
-- Propietarios.
-- Mascotas.
-- Veterinarios.
-- Citas.
-- Prevención de citas duplicadas para el mismo veterinario.
+VetTurno es una API REST para gestionar la información básica de una veterinaria. 
+El sistema permite registrar usuarios, propietarios, mascotas, veterinarios y citas, 
+además de consultar la información mediante endpoints protegidos.
+
+### Funcionalidades incluidas
+
+- Registro e inicio de sesión de usuarios.
+- Autenticación mediante JWT.
+- Manejo de roles USER y ADMIN.
+- Registro y consulta de propietarios.
+- Registro y consulta de mascotas asociadas a un propietario.
+- Registro y consulta de veterinarios.
+- Registro y consulta de citas.
 - Consulta de citas por veterinario.
-- Validaciones.
-- Manejo de errores.
-- Swagger.
-- MySQL.
-- README y GitHub.
+- Validación de datos de entrada.
+- Validación de que las citas tengan una fecha futura.
+- Prevención de citas duplicadas para un mismo veterinario y horario.
+- Manejo de errores mediante respuestas HTTP.
+- Persistencia de la información en MySQL mediante JPA/Hibernate.
+- Documentación y pruebas de la API mediante Swagger/OpenAPI.
+
+### Fuera del alcance
+
+El proyecto no incluye:
+
+- Historias clínicas.
+- Pagos.
+- Inventario.
+- Recordatorios o notificaciones.
+- Aplicación web o móvil.
+- Despliegue obligatorio en la nube.
+- Docker como requisito del proyecto.
 ## Tecnologías
 ## Modelo
 | Entidad         | Campos principales                                          | Descripción                                                                  |
@@ -126,5 +146,4 @@ Respuesta 201 Created
 - Intento de crear una cita en el pasado.
 - Intento de crear una cita duplicada.
 - Error 500 por una configuración incorrecta.
-## Cómo ejecutar el proyecto
-## Swagger
+
