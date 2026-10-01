@@ -108,12 +108,23 @@ Comprueba que no exista otra cita
        ↓
 CitaRepository
        ↓
-MySQL
+     MySQL
        ↓
 Respuesta 201 Created
 ```
 
 ## Pruebas
 ## Errores frecuentes
+- MySQL no está iniciado.
+- Usuario o contraseña de MySQL incorrectos.
+- La base de datos vetturno no existe.
+- El puerto 8080 está ocupado.
+- JWT no enviado en Authorization.
+- Usuario USER intentando registrar veterinario.
+- ID de propietario inexistente.
+- ID de mascota o veterinario inexistente.
+- Intento de crear una cita en el pasado.
+- Intento de crear una cita duplicada.
+- Error 500 por una configuración incorrecta.
 ## Cómo ejecutar el proyecto
 ## Swagger
