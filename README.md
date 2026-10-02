@@ -133,7 +133,11 @@ CitaRepository
 Respuesta 201 Created
 ```
 
-## Pruebas
+## Matriz de pruebas
+
+La matriz completa de pruebas manuales se encuentra en el siguiente archivo:
+
+[Ver matriz completa de pruebas](evidencia/matriz-pruebas.md)
 ## Errores frecuentes
 - MySQL no está iniciado.
 - Usuario o contraseña de MySQL incorrectos.

@@ -1,6 +1,8 @@
 package com.Proyecto.VetTurno.security;
 
 
+import com.Proyecto.VetTurno.execption.CustomAuthEntryPoint;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,6 +20,8 @@ public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
 
+    @Autowired
+    private CustomAuthEntryPoint customAuthEntryPoint;
     public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
         this.jwtAuthFilter = jwtAuthFilter;
     }
@@ -35,6 +39,9 @@ public class SecurityConfig {
                     .hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
             )
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(customAuthEntryPoint)
+                )
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
