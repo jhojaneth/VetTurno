@@ -88,12 +88,27 @@ GET   /api/citas/veterinario/{id}
 ### ADMIN
 - Puede hacer todo lo anterior.
 - Puede registrar veterinarios.
-## Configuración de MySQL
-- Crear la base de datos VetTurno
-- Configurar application.properties: 
-`spring.datasource.url=jdbc:mysql://localhost:3306/vetturnos`
-`spring.datasource.username=root`
-`spring.datasource.password=enginner`
+- 
+## Configuración
+
+### MySQL
+
+La aplicación utiliza MySQL como sistema de gestión de base de datos.
+
+Base de datos:
+`vetturno`
+
+La configuración de conexión se encuentra en:
+
+`src/main/resources/application.properties`
+
+Ejemplo:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/vetturno
+spring.datasource.username=root
+spring.datasource.password=TU_CONTRASEÑA
+spring.jpa.hibernate.ddl-auto=update
   
 ## Orden del flujo
 
